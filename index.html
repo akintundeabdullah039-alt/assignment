@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Assignment 1
+
+        const account = { 
+            owner: "Your Name", 
+            balance: 5000, 
+            pin: "1234", 
+            
+            deposit(amount) { 
+                this.balance += amount; 
+                return "New balance is ₦" + this.balance; 
+            }, 
+            withdraw(amount) { 
+                if (amount > this.balance) { 
+                    return "Insufficient funds"; 
+                } 
+                else { 
+                    this.balance -= amount; 
+                    return "New balance is ₦" + this.balance; 
+                } 
+            }, 
+            checkBalance() { 
+                    return "Balance is ₦" + this.balance; 
+                } 
+        };
+                
+        // Test the methods 
+        console.log(account.deposit(2000)); 
+        console.log(account.withdraw(1000)); 
+        console.log(account.withdraw(10000)); 
+        console.log(account.checkBalance());
+
+
+        // Assignment 2
+        
+        const order = {
+            orderId: 101,
+
+            customer: {
+                name: "Tunde",
+                email: "tunde@example.com",
+                address: "Lagos, Nigeria"
+            },
+
+            product: {
+                name: "Shoe",
+                price: 10000,
+                quantity: 2
+            },
+
+            isDelivered: false,
+
+            totalPrice() {
+                return this.product.price * this.product.quantity;
+            },
+
+            summary() {
+                return "Order" + this.orderId + ": " +
+                this.customer.name + "ordered" + 
+                this.product.quantity + "x" + 
+                this.product.name + "= ₦" + 
+                this.totalPrice();
+            }
+        };
+
+        // Object destructuring
+        const { name } = order.customer;
+        console.log(name);
+
+        // Test the methods
+        console.log(order.totalPrice());
+        console.log(order.summary());
+
+
+        // Assignment 3
+
+        
+        const book = {
+            title: "JS for Beginners",
+            author: "John Doe",
+            pages: 200,
+            isRead: false,
+
+            readBook() {
+                this.isRead = true;
+            },
+
+            addInfo(publisher, year) {
+                this.publisher = publisher;
+                this.year = year;
+            }
+        };
+
+        // Test readBook()
+        book.readBook();
+        // console.log(book.isRead); 
+
+        // Test addInfo()
+        book.addInfo("Tech Books Ltd", 2026);
+        console.log(book);
+
+
+
+    </script>
+</body>
+</html>
